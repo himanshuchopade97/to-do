@@ -12,8 +12,15 @@
         <div class="p">
             <h3>@<%=post.task%></h3>
             <h4><%=post.description%></h4>
+            <form action="" id="frm">
+                <button>Edit!</button>
+            </form>
+            <form action="posts/<%=posts.indexOf(post)%>" id="frm">
+                <button>Delete!</button>
+            </form>
         </div>
     <%}%>
+    <br>
     <form action="/posts/new">
         <button>New Post!</button>
     </form>

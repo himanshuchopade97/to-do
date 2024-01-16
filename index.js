@@ -10,7 +10,7 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname,"public")));
 let posts=[
-    {
+    { 
         task:"Hamza",
         description:"play"
     },
@@ -27,5 +27,11 @@ app.get("/posts/new",(req,res)=>{
 });
 app.post("/posts",(req,res)=>{
     posts.push(req.body);
+    res.redirect("/posts");
+});
+app.get("/posts/:id",(req,res)=>{
+    let {id}=req.params;
+    let ind=parseInt(id);
+    posts.splice(ind,1);
     res.redirect("/posts");
 });
