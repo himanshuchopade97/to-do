@@ -32,10 +32,10 @@
                 <br>
                 <p><%=subtask.description%></p>
                 <br>
-                <form action="edit/<%= subtask.task %>" id="frm">
+                <form action="/edit/<%= subtask.task %>" id="frm">
                     <button id="btedit">EDIT!</button>
                 </form>
-                <form action="delete/<%= subtask.task %>" id="frm">
+                <form action="/delete/<%= subtask.task %>" id="frm">
                     <button id="btdel">DELETE!</button>
                 </form>
             </div>

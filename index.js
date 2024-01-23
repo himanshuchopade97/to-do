@@ -93,64 +93,6 @@ app.get("/dash",(req,res)=>{
         console.log("eRROR");
     }
 });
-app.get("/edit/:id",(req,res)=>{
-    let {id}=req.params;
-    let ind=id;
-    let q=`SELECT * FROM task WHERE task="${ind}"`;
-    let ar="";
-    try{
-        connection.query(q,(err,resp)=>{
-            if(err)
-            {
-                throw err; 
-            }
-            ar=resp[0];
-            res.render("index.ejs",{ar});
-        });
-    } catch{
-        console.log("eRROR");
-    }
-});
-app.get("/logout",(req,res)=>{
-    res.redirect("/");
-});
-app.get("/new",(req,res)=>{
-    res.render("new.ejs");
-});
-app.post("/add",(req,res)=>{
-    let task_=req.body.task;
-    let desc=req.body.description;
-    let q=`INSERT INTO task (username,task,description) VALUES ("${per_user}","${task_}","${desc}")`;
-    try{
-        connection.query(q,(err,resp)=>{
-            if(err)
-            {
-                throw err; 
-            }
-            res.redirect("/dash");
-        });
-    } catch{
-        console.log("eRROR");
-    }
-});
-app.get("/delete/:id",(req,res)=>{
-    let {id}=req.params;
-    let ind=id;
-    console.log(ind);
-    let q=`DELETE FROM task WHERE task="${ind}"`;
-    try{
-        connection.query(q,(err,resp)=>{
-            if(err)
-            {
-                throw err; 
-            }
-            res.redirect("/dash");
-        });
-    } catch{
-        console.log("eRROR");
-    }
-});
-
 app.post("/new_signup",(req,res)=>{
     let use_=req.body.user;
     let pess=req.body.pass;
@@ -190,7 +132,166 @@ app.post("/new_signup",(req,res)=>{
 app.get("/signup",(req,res)=>{
     res.render("signup.ejs");
 });
+app.get("/new",(req,res)=>{
+    res.render("new.ejs");
+});
+app.post("/add",(req,res)=>{
+    let task_=req.body.task;
+    let desc=req.body.description;
+    let q=`INSERT INTO task (username,task,description) VALUES ("${per_user}","${task_}","${desc}")`;
+    try{
+        connection.query(q,(err,resp)=>{
+            if(err)
+            {
+                throw err; 
+            }
+            res.redirect("/dash");
+        });
+    } catch{
+        console.log("eRROR");
+    }
+});
+app.get("/delete/:id",(req,res)=>{
+    let {id}=req.params;
+    let ind=id;
+    console.log(ind);
+    let q=`DELETE FROM task WHERE task="${ind}"`;
+    try{
+        connection.query(q,(err,resp)=>{
+            if(err)
+            {
+                throw err; 
+            }
+            res.redirect("/dash");
+        });
+    } catch{
+        console.log("eRROR");
+    }
+});
+app.get("/logout",(req,res)=>{
+    res.redirect("/");
+});
+app.get("/edit/:id",(req,res)=>{
+    let {id}=req.params;
+    let ind=id;
+    let qt=`SELECT * FROM task WHERE task="${ind}"`;
+    try{
+        connection.query(qt,(err,resp)=>{
+            if(err)
+            {
+                throw err; 
+            }
+            let ar=resp;
+            res.render("edit.ejs",{ar});
+        });
+    } catch{
+        console.log("eRROR");
+    }
+});
+app.patch("/edited/:us/:id",(req,res)=>{
+    let {id}=req.params;
+    let {us}=req.params;
+    let ink=id;
+    let usk=us;
+    let new_task=req.body.tsk;
+    let new_des=req.body.desc;
+    let new_q=`UPDATE task SET description= "${new_des}", task= "${new_task}" WHERE task="${ink}"`;
+    try{
+        connection.query(new_q,(err,resp)=>{
+            if(err)
+            {
+                throw err; 
+            }
+        });
+    } catch{
+        console.log("eRROR");
+    }
+    per_user=usk;
+    res.redirect("/dash");
+});
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.get("/edit/:id",(req,res)=>{
+//     let {id}=req.params;
+//     let ind=id;
+//     let q=`SELECT * FROM task WHERE task="${ind}"`;
+//     let ar="";
+//     try{
+//         connection.query(q,(err,resp)=>{
+//             if(err)
+//             {
+//                 throw err; 
+//             }
+//             const ar=Object.keys(resp[0]);
+//             console.log(ar);
+//             let artask=ar[1];
+//             let aruser=ar[0];
+//             let ardes=ar[2];
+//             console.log(artask);
+//             res.render("edit.ejs",{artask,aruser,ardes});
+//         });
+//     } catch{
+//         console.log("eRROR");
+//     }
+// });
+
+// app.patch("/edited/:us/:id",(req,res)=>{
+//     let {id}=req.params;
+//     let ink=id;
+//     console.log(ink);
+//     let new_task=req.body.tsk;
+//     let new_des=req.body.desc;
+//     let new_q=`UPDATE task
+//     SET task= "${new_task}",description= "${new_des}",
+//     WHERE task="${ink}"`;
+//     try{
+//         connection.query(q,(err,resp)=>{
+//             if(err)
+//             {
+//                 throw err; 
+//             }
+//         });
+//     } catch{
+//         console.log("eRROR");
+//     }
+//     res.redirect("/dash");
+// });
 // app.get("/posts/new",(req,res)=>{
 //     res.render("form.ejs");
 // });
