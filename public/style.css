@@ -1,12 +1,135 @@
-h1
+*
 {
-    color: maroon;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#na
+{
+    display: flex;
+    background-color: rgb(144, 231, 174);
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    height: 8vh;
+    width: 98.92vw;
+    font-weight: 900;
+}
+#hea
+{
+    margin-left: 1%;
+    width: 60%;
+    font-size: 180%;
+    font-style: italic;
+    font-weight: 900;
+}
+#connect
+{
+    justify-content: right;
+    width: 40%;
+    display: flex;
+    margin-right: 1%;
+}
+#dev
+{
+    font-size: 180%;
+    margin-right: 3%;
+    justify-content: center;
+}
+h2
+{
+    text-decoration: solid;
+    font-style: italic;
+    font-weight: 700;
+    font-family: cursive;
+}
+#all
+{
+    display: grid;
+    justify-content: space-evenly;
+}
+#inn
+{
+    display: flex;
+}
+#im
+{
+    background-color: black;
 }
 .p
 {
-    background-color: blanchedalmond;
+    background-color: rgb(144, 231, 174);
+    width: 1200px;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 10px;
+    text-align: center;
 }
 #frm
 {
     display: inline;
+}
+#btdel
+{
+    width: 70px;
+    height: 25px;
+    background-color: rgb(144, 231, 174);
+    border-right: 2px solid black;  
+    border-bottom: 2px solid black; 
+    margin-left: 3px;
+    border-left: none;
+    border-top: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+#btedit
+{
+    width: 70px;
+    height: 25px;
+    background-color: rgb(144, 231, 174);
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    margin-right: 3px;   
+    border-left: none;
+    border-top: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#frmu
+{
+    display: inline;
+}
+#new
+{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(144, 231, 174);
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    margin-right: 3px;   
+    border-left: none;
+    border-top: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+#log
+{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(144, 231, 174);
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    margin-right: 3px;   
+    margin-left: 150px;
+    border-left: none;
+    border-top: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+#last
+{
+    margin: auto;
+    align-items: center;
+    text-align: center;
 }

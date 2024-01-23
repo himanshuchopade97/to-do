@@ -7,22 +7,48 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>TO-DO LIST!</h1>
-    <%for(post of posts){%>
-        <div class="p">
-            <h3>@<%=post.task%></h3>
-            <h4><%=post.description%></h4>
-            <form action="posts/edit/<%=posts.indexOf(post)%>" id="frm">
-                <button>Edit!</button>
-            </form>
-            <form action="posts/<%=posts.indexOf(post)%>" id="frm">
-                <button>Delete!</button>
-            </form>
+    <div id="na">
+        <div id="hea">
+            <div id="head">
+                TO-DO APP
+            </div>
         </div>
-    <%}%>
+        <div id="connect">
+            <div id="dev">DEVELOPER:</div>
+            <div id="con">
+                <div id="name">
+                    MOHD HAMZA ABBASI
+                </div>
+                <div id="mob">
+                    +919336865880
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="all">
+        <%for(subtask of task){%>
+            <div class="p">
+                <h2><%=subtask.task%></h2>
+                <br>
+                <p><%=subtask.description%></p>
+                <br>
+                <form action="edit/<%= subtask.task %>" id="frm">
+                    <button id="btedit">EDIT!</button>
+                </form>
+                <form action="delete/<%= subtask.task %>" id="frm">
+                    <button id="btdel">DELETE!</button>
+                </form>
+            </div>
+        <%}%>
+    </div>
     <br>
-    <form action="/posts/new">
-        <button>New Post!</button>
-    </form>
+    <div id="last">
+        <form action="/new" id="frmu">
+            <button id="new">New Post</button>
+        </form>
+        <form action="/logout" id="frmu">
+            <button id="log">LOGOUT</button>
+        </form>
+    </div>
 </body>
 </html>

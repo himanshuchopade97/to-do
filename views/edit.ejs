@@ -3,20 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Task!</title>
-    <link rel="stylesheet" href="/form.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/home.css">
+    <style>
+        #er
+        {
+            color: red;
+            margin-top: 5%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Edit Task!</h1>
-    <form method="post" action="/posts/<%= ind %>?_method=PATCH">
-        <h2 id="head">Task : </h2>
-        <input type="text" name="krn" value="<%= taask.task %>">
-        <br>
-        <h2 id="head">Description : </h2>
-        <input type="text" name="hehe" value="<%= taask.description %>">
-        <br>
-        <br>
-        <button>Change Task!</button>
-    </form>    
+    <div id="na">
+        <div id="hea">
+            <div id="head">
+                TO-DO APP
+            </div>
+        </div>
+        <div id="connect">
+            <div id="dev">DEVELOPER:</div>
+            <div id="con">
+                <div id="name">
+                    MOHD HAMZA ABBASI
+                </div>
+                <div id="mob">
+                    +919336865880
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="log">
+        <div id="inlog">
+            <h1 id="h">SIGN IN</h1>
+            <P>Don't have an account? <a href="/signup" id="lnk">Sign up</a></P>
+            <form action="/dash" method="post" id="frm">
+                <input type="text" id="user" placeholder=" Enter Username" name="user" required>
+                <input type="password" id="pass" placeholder=" Enter password" name="pass" required>
+                <h5 id="er"></h5>
+                <button id="bt">LOGIN</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
